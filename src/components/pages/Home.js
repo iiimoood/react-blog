@@ -8,7 +8,7 @@ const Home = () => {
         <h1 className="col-9 col-md-10 col-xl-11">All posts</h1>
         <button
           type="button"
-          class="btn btn-outline-primary col-3 col-md-2 col-xl-1"
+          className="btn btn-outline-primary col-3 col-md-2 col-xl-1"
         >
           <NavLink to="/post/add" className="text-decoration-none">
             Add post
