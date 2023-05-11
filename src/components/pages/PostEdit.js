@@ -1,8 +1,10 @@
-import { useParams } from 'react-router';
+import EditPostForm from '../features/EditPostForm';
 
 const PostEdit = () => {
-  const { id } = useParams();
-  return <h1>Edit Post</h1>;
+  <div>
+    <h1>Edit Post</h1>
+    <EditPostForm />
+  </div>;
 };
 
 export default PostEdit;

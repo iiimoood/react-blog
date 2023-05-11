@@ -62,7 +62,7 @@ const Post = (props) => {
           <p>{post.shortDescription}</p>
         </div>
       </div>
-      <button type="button" class="btn btn-outline-primary">
+      <button type="button" className="btn btn-outline-primary">
         Edit
       </button>
       <button
