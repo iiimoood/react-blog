@@ -9,7 +9,10 @@ import { getPostById } from '../../redux/postsRedux';
 const AddPostForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const id = window.location.href.replace('/post/edit/', '');
+  const id = window.location.href.replace(
+    'http://localhost:3000//post/edit/',
+    ''
+  );
   const post = useSelector((state) => getPostById(state, id));
 
   const handleSubmit = (post) => {
