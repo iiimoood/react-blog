@@ -5,14 +5,13 @@ import { Navigate } from 'react-router-dom';
 import PostForm from './PostForm';
 import { useSelector } from 'react-redux';
 import { getPostById } from '../../redux/postsRedux';
+import { useParams } from 'react-router';
 
-const AddPostForm = () => {
+const EditPostForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const id = window.location.href.replace(
-    'http://localhost:3000//post/edit/',
-    ''
-  );
+  const { id } = useParams();
+
   const post = useSelector((state) => getPostById(state, id));
 
   const handleSubmit = (post) => {
@@ -34,4 +33,4 @@ const AddPostForm = () => {
   );
 };
 
-export default AddPostForm;
+export default EditPostForm;

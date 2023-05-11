@@ -5,9 +5,9 @@ import { NavLink } from 'react-router-dom';
 const Posts = () => {
   const posts = useSelector(getAllPosts);
   return (
-    <div className="d-flex flex-wrap justify-content-between">
+    <div className="d-flex flex-wrap justify-content-between mr-1">
       {posts.map((post) => (
-        <div key={post.id} className="card col-12 col-md-6 col-lg-4 row ">
+        <div key={post.id} className="card col-12 col-md-6 col-lg-4 row">
           <div className="card-body">
             <h3 className="card-title">{post.title}</h3>
             <p>

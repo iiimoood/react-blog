@@ -17,7 +17,7 @@ const PostForm = ({ action, actionText, ...props }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <label>Title</label>
         <input
           type="text"
@@ -28,7 +28,7 @@ const PostForm = ({ action, actionText, ...props }) => {
           value={title}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <label>Password</label>
         <input
           type="text"
@@ -39,7 +39,7 @@ const PostForm = ({ action, actionText, ...props }) => {
           value={author}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <label>Published</label>
         <input
           type="text"
@@ -50,11 +50,11 @@ const PostForm = ({ action, actionText, ...props }) => {
           value={publishedDate}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <label>Short description</label>
         <textarea
           type="text"
-          className="form-control w-50"
+          className="form-control w-75"
           id="shortDescription"
           placeholder="Leave a comment here"
           rows="4"
@@ -62,11 +62,11 @@ const PostForm = ({ action, actionText, ...props }) => {
           value={shortDescription}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <label>Main content</label>
         <textarea
           type="text"
-          className="form-control w-50"
+          className="form-control w-75"
           id="mainContent"
           placeholder="Leave a comment here"
           rows="7"
