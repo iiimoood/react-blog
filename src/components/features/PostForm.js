@@ -1,5 +1,13 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
+function MyComponent() {
+  const [value, setValue] = useState('');
+
+  return <ReactQuill theme="snow" value={value} onChange={setValue} />;
+}
 
 const PostForm = ({ action, actionText, ...props }) => {
   const [title, setTitle] = useState(props.title || '');
@@ -64,14 +72,11 @@ const PostForm = ({ action, actionText, ...props }) => {
       </div>
       <div className="form-group mb-2">
         <label>Main content</label>
-        <textarea
-          type="text"
-          className="form-control w-75"
-          id="mainContent"
+        <ReactQuill
+          theme="snow"
           placeholder="Leave a comment here"
-          rows="7"
-          onChange={(e) => setMainContent(e.target.value)}
           value={mainContent}
+          onChange={setMainContent}
         />
       </div>
       <button type="submit" className="btn btn-primary">

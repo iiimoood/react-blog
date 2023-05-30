@@ -34,6 +34,7 @@ const Post = (props) => {
             {post.publishedDate}
           </p>
           <p>{post.shortDescription}</p>
+          <p dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
         <div>
           <Link to={'/post/edit/' + post.id}>
