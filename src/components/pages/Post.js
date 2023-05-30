@@ -5,6 +5,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { removeCard } from '../../redux/postsRedux';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import DateToStr from '../../utils/dateToStr';
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -31,10 +32,10 @@ const Post = (props) => {
           </p>
           <p>
             <span className="fw-bold">Published: </span>
-            {post.publishedDate}
+            {DateToStr(post.publishedDate)}
           </p>
           <p>{post.shortDescription}</p>
-          <p dangerouslySetInnerHTML={{ __html: post.content }} />
+          <p dangerouslySetInnerHTML={{ __html: post.mainContent }} />
         </div>
         <div>
           <Link to={'/post/edit/' + post.id}>

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { getAllPosts } from '../../redux/postsRedux';
 import { NavLink } from 'react-router-dom';
+import DateToStr from '../../utils/dateToStr';
 
 const Posts = () => {
   const posts = useSelector(getAllPosts);
@@ -15,7 +16,7 @@ const Posts = () => {
             </p>
             <p>
               <span className="fw-bold">Published: </span>
-              {post.publishedDate}
+              {DateToStr(post.publishedDate)}
             </p>
             <p>{post.shortDescription}</p>
             <button type="button" className="btn btn-primary ">
