@@ -33,17 +33,22 @@ const PostForm = ({ action, actionText, ...props }) => {
     props.shortDescription || ''
   );
   const [mainContent, setMainContent] = useState(props.MainContent || '');
+  const [contentError, setContentError] = useState(false);
+  const [dateError, setDateError] = useState(false);
 
-  const handleSubmit = (e) => {
-    action({ title, author, publishedDate, shortDescription, mainContent });
+  const handleSubmit = () => {
+    setContentError(!mainContent);
+    setDateError(!publishedDate);
+    if (mainContent && publishedDate) {
+      action({ title, author, publishedDate, shortDescription, mainContent });
+    }
   };
-
   return (
     <form onSubmit={validate(handleSubmit)}>
       <div className="form-group mb-2">
         <label>Title</label>
         <input
-          {...register('title', { required: true })}
+          {...register('title', { required: true, minLength: 3 })}
           type="text"
           className="form-control w-25"
           id="title"
@@ -53,13 +58,14 @@ const PostForm = ({ action, actionText, ...props }) => {
         />
         {errors.title && (
           <small className="d-block form-text text-danger mt-2">
-            This field is required
+            Title is too short (min is 3)
           </small>
         )}
       </div>
       <div className="form-group mb-2">
-        <label>Password</label>
+        <label>Author</label>
         <input
+          {...register('author', { required: true, minLength: 3 })}
           type="text"
           className="form-control w-25"
           id="author"
@@ -67,6 +73,11 @@ const PostForm = ({ action, actionText, ...props }) => {
           onChange={(e) => setAuthor(e.target.value)}
           value={author}
         />
+        {errors.author && (
+          <small className="d-block form-text text-danger mt-2">
+            Author is too short (min is 3)
+          </small>
+        )}
       </div>
       <div className="form-group mb-2">
         <label>Published</label>
@@ -74,10 +85,16 @@ const PostForm = ({ action, actionText, ...props }) => {
           selected={publishedDate}
           onChange={(date) => setPublishedDate(date)}
         />
+        {dateError && (
+          <small className="d-block form-text text-danger mt-2">
+            Date can't be empty
+          </small>
+        )}
       </div>
       <div className="form-group mb-2">
         <label>Short description</label>
         <textarea
+          {...register('shortDescription', { required: true, minLength: 20 })}
           type="text"
           className="form-control w-75"
           id="shortDescription"
@@ -86,6 +103,11 @@ const PostForm = ({ action, actionText, ...props }) => {
           onChange={(e) => setShortDescription(e.target.value)}
           value={shortDescription}
         />
+        {errors.shortDescription && (
+          <small className="d-block form-text text-danger mt-2">
+            Description is too short (min is 20)
+          </small>
+        )}
       </div>
       <div className="form-group mb-2">
         <label>Main content</label>
@@ -95,6 +117,11 @@ const PostForm = ({ action, actionText, ...props }) => {
           value={mainContent}
           onChange={setMainContent}
         />
+        {contentError && (
+          <small className="d-block form-text text-danger mt-2">
+            Content can't be empty
+          </small>
+        )}
       </div>
       <button type="submit" className="btn btn-primary">
         {actionText}
