@@ -27,6 +27,15 @@ const NavbarComponent = () => {
         </Nav.Link>
         <Nav.Link
           as={NavLink}
+          to="/categories"
+          className={clsx('me-3', ({ isActive }) =>
+            isActive ? styles.linkActive : undefined
+          )}
+        >
+          Categories
+        </Nav.Link>
+        <Nav.Link
+          as={NavLink}
           to="/about"
           className={clsx('me-3', ({ isActive }) =>
             isActive ? styles.linkActive : undefined

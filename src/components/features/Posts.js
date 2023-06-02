@@ -18,6 +18,9 @@ const Posts = () => {
               <span className="fw-bold">Published: </span>
               {DateToStr(post.publishedDate)}
             </p>
+            <p>
+              <span className="fw-bold">Category:</span> {post.category}
+            </p>
             <p>{post.shortDescription}</p>
             <button type="button" className="btn btn-primary ">
               <NavLink

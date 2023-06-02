@@ -32,7 +32,8 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [shortDescription, setShortDescription] = useState(
     props.shortDescription || ''
   );
-  const [mainContent, setMainContent] = useState(props.MainContent || '');
+  const [mainContent, setMainContent] = useState(props.mainContent || '');
+  const [category, setCategory] = useState(props.category || '');
   const [contentError, setContentError] = useState(false);
   const [dateError, setDateError] = useState(false);
 
@@ -90,6 +91,9 @@ const PostForm = ({ action, actionText, ...props }) => {
             Date can't be empty
           </small>
         )}
+      </div>
+      <div className="form-group mb-2">
+        <select></select>
       </div>
       <div className="form-group mb-2">
         <label>Short description</label>

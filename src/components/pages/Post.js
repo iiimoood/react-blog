@@ -34,6 +34,9 @@ const Post = (props) => {
             <span className="fw-bold">Published: </span>
             {DateToStr(post.publishedDate)}
           </p>
+          <p>
+            <span className="fw-bold">Category:</span> {post.category}
+          </p>
           <p>{post.shortDescription}</p>
           <p dangerouslySetInnerHTML={{ __html: post.mainContent }} />
         </div>
