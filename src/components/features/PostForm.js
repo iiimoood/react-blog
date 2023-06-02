@@ -5,6 +5,8 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useForm } from 'react-hook-form';
+import { getAllCategories } from '../../redux/categoriesRedux';
+import { useSelector } from 'react-redux';
 
 function MyComponent() {
   const [value, setValue] = useState('');
@@ -36,6 +38,7 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [category, setCategory] = useState(props.category || '');
   const [contentError, setContentError] = useState(false);
   const [dateError, setDateError] = useState(false);
+  const categories = useSelector(getAllCategories);
 
   const handleSubmit = () => {
     setContentError(!mainContent);
@@ -93,7 +96,11 @@ const PostForm = ({ action, actionText, ...props }) => {
         )}
       </div>
       <div className="form-group mb-2">
-        <select></select>
+        <select onChange={(e) => setCategory(e.target.value)} value={category}>
+          {categories.map((category) => (
+            <option key={category.name}>{category.name}</option>
+          ))}
+        </select>
       </div>
       <div className="form-group mb-2">
         <label>Short description</label>
