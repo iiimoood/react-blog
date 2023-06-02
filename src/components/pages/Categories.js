@@ -9,7 +9,7 @@ const Categories = () => {
       <h1>All categories</h1>
       <div>
         {categories.map((category) => (
-          <div className="card d-flex flex-row card-body m-auto ">
+          <div className="card d-flex flex-row card-body m-auto">
             <Link to={'/category/' + category.name} key={category.id}>
               {category.name}
             </Link>
